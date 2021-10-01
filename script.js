@@ -47,12 +47,16 @@ function checkUserInput (seq,stepNum) {
   $(".green-button").click(function () {
     userSeq.push(1);
     userPushCount++;
-    $(this).animate({opacity: 0.5});
+    $(this).animate({opacity: 0.2});
     $(this).animate({opacity: 1.0});
-    if (userPushCount==stepNum && buttSeq==seq) {
-      $("#start-button").html("Correct! You win!!!");
-    } else if (userPushCount==stepNum) {
-      $("#start-button").html("Wrong order!! Failure!");
+    if (userPushCount==stepNum) {
+      var is_same = userSeq.every(function(element, index) {
+        return element === seq[index];});
+      if (is_same==true) {
+        $("#start-button").html("Correct! You win!!!");
+      } else {
+        $("#start-button").html("Wrong order!! Failue");
+      }
     } else {
       $("#start-button").html("Make your next guess!");
     };
@@ -60,12 +64,16 @@ function checkUserInput (seq,stepNum) {
   $(".red-button").click(function () {
     userSeq.push(2);
     userPushCount++;
-    $(this).animate({opacity: 0.5});
+    $(this).animate({opacity: 0.2});
     $(this).animate({opacity: 1.0});
-    if (userPushCount==stepNum && buttSeq==seq) {
-      $("#start-button").html("Correct! You win!!!");
-    } else if (userPushCount==stepNum) {
-      $("#start-button").html("Wrong order!! Failure!");
+    if (userPushCount==stepNum) {
+      var is_same = userSeq.every(function(element, index) {
+        return element === seq[index];});
+      if (is_same==true) {
+        $("#start-button").html("Correct! You win!!!");
+      } else {
+        $("#start-button").html("Wrong order!! Failue");
+      }
     } else {
       $("#start-button").html("Make your next guess!");
     };
@@ -73,12 +81,16 @@ function checkUserInput (seq,stepNum) {
   $(".yellow-button").click(function () {
     userSeq.push(3);
     userPushCount++;
-    $(this).animate({opacity: 0.5});
+    $(this).animate({opacity: 0.2});
     $(this).animate({opacity: 1.0});
-    if (userPushCount==stepNum && userSeq==seq) {
-      $("#start-button").html("Correct! You win!!!");
-    } else if (userPushCount==stepNum) {
-      $("#start-button").html("Wrong order!! Failure!");
+    if (userPushCount==stepNum) {
+      var is_same = userSeq.every(function(element, index) {
+        return element === seq[index];});
+      if (is_same==true) {
+        $("#start-button").html("Correct! You win!!!");
+      } else {
+        $("#start-button").html("Wrong order!! Failue");
+      }
     } else {
       $("#start-button").html("Make your next guess!");
     };
@@ -86,18 +98,22 @@ function checkUserInput (seq,stepNum) {
   $(".blue-button").click(function () {
     userSeq.push(4);
     userPushCount++;
-    $(this).animate({opacity: 0.5});
+    $(this).animate({opacity: 0.2});
     $(this).animate({opacity: 1.0});
-    if (userPushCount==stepNum && buttSeq==seq) {
-      $("#start-button").html("Correct! You win!!!");
-    } else if (userPushCount==stepNum) {
-      $("#start-button").html("Wrong order!! Failure!");
+    if (userPushCount==stepNum) {
+      var is_same = userSeq.every(function(element, index) {
+        return element === seq[index];});
+      if (is_same==true) {
+        $("#start-button").html("Correct! You win!!!");
+      } else {
+        $("#start-button").html("Wrong order!! Failue");
+      }
     } else {
       $("#start-button").html("Make your next guess!");
     };
   });
 
-  //return console.log(userSeq)
+
 
 };
 
@@ -105,7 +121,7 @@ function checkUserInput (seq,stepNum) {
 
 function flashButton(num) {
 
-  $("button").eq(num).animate({opacity: 0.5}).animate({opacity: 1.0});
+  $("button").eq(num).animate({opacity: 0.1}).animate({opacity: 1.0});
 
 };
 
